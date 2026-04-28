@@ -1,0 +1,15 @@
+{
+    "sensors" : [
+        { "name" : "sensor1", "rule" : "Датчик 1" },
+        { "name" : "sensor2", "rule" : "Датчик 2" }
+    ],
+    "rules" : [
+        { "name" : "state", "type" : "bool",  "rule" : "Состояние: (.*)", "true" : "включен", "false" : "выключен" },
+        { "name" : "temp",  "type" : "value", "rule" : "Температура: (.*)" },
+        { "name" : "speed", "type" : "speed", "rule" : "Скорость: (.*) (.*)/s" }
+    ],
+    "extractors" : [
+        { "sensor" : "sensor1", "rules" : [ "temp", "speed" ] },
+        { "sensor" : "sensor2", "rules" : [ "state", "speed" ] }
+    ]
+}
